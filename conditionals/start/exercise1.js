@@ -9,10 +9,12 @@
 function exercise1(start) {
   const note = "C4";
   const duration = "8n";
+  let isMuted = false;
 
   // TODO 1a: under duration, store a yes/no fact about the sound: let isMuted = false;
   //          No quotation marks: false is not text, it's a boolean.
   // TODO 1b: log it: console.log("Exercise 1: isMuted is " + isMuted);
+  console.log("Exercise 1: isMuted is " + isMuted);
 
   synth.triggerAttackRelease(note, duration, start);
 
