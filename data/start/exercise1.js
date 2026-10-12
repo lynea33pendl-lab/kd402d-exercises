@@ -14,12 +14,11 @@
 // TODO 1d: try the same with note: note = "D4";  Read the error in the console. Then delete that line.
 
 const note = "C4";
-let duration = "2n";
+let duration = "8n";
 
 duration = "2n";
 
 function exercise1(start) {
- 
   synth.triggerAttackRelease("E4", "2n", start + 0.5);
   synth.triggerAttackRelease("G4", "2n", start + 1);
 }
