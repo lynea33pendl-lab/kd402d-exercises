@@ -4,6 +4,12 @@
 function exercise4(start) {
   const typedOctave = "4"; // text, in quotation marks
   const octave = 4; // a number
+  console.log(
+    "Exercise 4: typedOctave 4 == octave is " + (typedOctave == octave),
+  );
+  console.log(
+    "Exercise 4: typedOctave == octave is " + (typedOctave == octave),
+  );
 
   // TODO 4a: predict, then log both:
   //            console.log("Exercise 4: typedOctave == octave is " + (typedOctave == octave));
