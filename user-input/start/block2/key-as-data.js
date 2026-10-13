@@ -8,16 +8,44 @@ const synth = new Tone.Synth().toDestination();
 // The octave every note is played in. Exercise 7 plays one higher with Shift.
 let octave = 4;
 
+function letterNote(key, oct) {
+  if (key.length === 1 && key >= "a" && key <= "g") {
+    return key.toUpperCase() + oct;
+  }
+  return "";
+}
+
+function noteForKey(key, oct) {
+  if (key === "a") {
+    return "C" + oct;
+  } else if (key === "s") {
+    return "D" + oct;
+  } else if (key === "d") {
+    return "E" + oct;
+  } else if (key === "f") {
+    return "F" + oct;
+  } else if (key === "g") {
+    return "G" + oct;
+  } else if (key === "h") {
+    return "A" + oct;
+  } else if (key === "j") {
+    return "B" + oct;
+  } else if (key === "k") {
+    return "C" + (oct + 1);
+  }
+  return "";
+}
+
 function handleKeyDown(event) {
   Tone.start(); // sound can only start after a key press or a click
-  console.log(event.key);
-
-  if (event.key === "a") {
-    synth.triggerAttackRelease("C4", "8n");
-  } else if (event.key === "s") {
-    synth.triggerAttackRelease("D4", "8n");
-  } else if (event.key === "d") {
-    synth.triggerAttackRelease("E4", "8n");
+  const key = event.key.toLowerCase();
+  let playOctave = octave;
+  if (event.shiftKey) {
+    playOctave = octave + 1;
+    const note = noteForKey(key, playOctave);
+    if (note !== "") {
+      synth.triggerAttackrelease(note, "8n");
+    }
   }
 }
 
@@ -34,7 +62,12 @@ document.addEventListener("keydown", handleKeyDown);
 //              synth.triggerAttackRelease(note, "8n");
 //            }
 //          Press a to g. Then press h, Enter and Shift: nothing should play.
-// TODO 5c: in a comment, say what event.key.length === 1 checks, and why it's there.
+// TODO 5c: in a comment, say what event.key.length === 1 checks, and why it's there
+//-----------------------------------Todo 5----------------------------------------------------
+//if (event.key.length === 1 && event.key >= "a" && event.key <= "g") {
+// key is only 1 letter long, like a,g,f, but not shift (5 letters)
+//const note = event.key.toUpperCase() + octave;
+// synth.triggerAttackRelease(note, "8n");
 
 // ---------- Exercise 6: keys are piano keys ----------
 // Now the position on the keyboard decides the note: the home row is a piano's white keys.
