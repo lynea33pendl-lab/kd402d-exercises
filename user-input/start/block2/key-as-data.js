@@ -38,14 +38,22 @@ function noteForKey(key, oct) {
 
 function handleKeyDown(event) {
   Tone.start(); // sound can only start after a key press or a click
+
+  // Exercise 7: with Shift held, event.key is a capital ("A"), so look up the small letter.
   const key = event.key.toLowerCase();
   let playOctave = octave;
   if (event.shiftKey) {
     playOctave = octave + 1;
-    const note = noteForKey(key, playOctave);
-    if (note !== "") {
-      synth.triggerAttackrelease(note, "8n");
-    }
+  }
+
+  const note = noteForKey(key, playOctave);
+
+  // Exercise 8: say what came in, and what it turned into.
+  if (note !== "") {
+    synth.triggerAttackRelease(note, "8n");
+    console.log("Key " + event.key + " played " + note);
+  } else {
+    console.log("Key " + event.key + " plays nothing");
   }
 }
 
