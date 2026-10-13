@@ -5,7 +5,7 @@
 // The instrument: plays one note at a time.
 const synth = new Tone.Synth().toDestination();
 
-// ---------- Exercise 1: hear the event ----------
+// ---------- Exercise 1: hear the event --------
 // 1a Before you press anything, write down what you think event.key will be for:
 //    a   7   the space bar   Shift   the up arrow
 // 1b Click the page and press them. Was each one what you expected?
